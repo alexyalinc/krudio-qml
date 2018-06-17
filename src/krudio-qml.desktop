@@ -4,4 +4,4 @@ Exec=krudio-qml %F
 Categories=AudioVideo;Player;GTK;
 Terminal=false 
 Type=Application
-Icon=krudio
+Icon=/usr/share/krudio-qml/data/krudio-qml.svg

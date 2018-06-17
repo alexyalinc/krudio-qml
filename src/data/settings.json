@@ -1,0 +1,30 @@
+{
+	"colors":{ 
+        "hrTopBar":"#919190",
+        "hrMainPageSelectGroupColor1":"#919190",
+        "hrMainPageSelectGroupColor2":"#919190",
+        "hrStationUrl1":"#919190",
+        "hrStationUrl2":"#919190",
+        "hrLabelGroup":"#919190",
+        
+		"textColor":"#000000",
+		"textColorHover":"#000000",
+		"textColorPressed":"#000000",
+		
+		"bgWindow":"#F2F4F3",
+		
+		"bgSelect":"#bad7df", 
+		
+		"bgInput":"#bad7df",
+		"inputColor":"#000000", 
+		
+		"borderColor":"#00000000",
+		"borderHoverColor":"#00000000",
+		"borderPressedColor":"#00000000",
+		
+		"bgColor":"#F2F4F3",
+		"bgColorHover":"#bad7df",
+		"bgColorPressed":"#bad7df"
+		  
+	}
+}
