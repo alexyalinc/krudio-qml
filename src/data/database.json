@@ -1,47 +1,11 @@
 [
     {
-        "name": "Jazz",
+        "name": "Rap",
         "stations": [
             {
                 "name": "FunX Den Haag Hip Hop",
                 "url": "http://icecast.omroep.nl/funx-hiphop-bb-mp3"
-            },
-            {
-                "name": "FunX Den Haag Hip Hop",
-                "url": "http://icecast.omroep.nl/funx-hiphop-bb-mp3"
-            },
-            {
-                "name": "FunX Den Haag Hip Hop",
-                "url": "http://icecast.omroep.nl/funx-hiphop-bb-mp3"
-            },
-            {
-                "name": "FunX Den Haag Hip Hop",
-                "url": "http://icecast.omroep.nl/funx-hiphop-bb-mp3"
-            },
-            {
-                "name": "FunX Den Haag Hip Hop",
-                "url": "http://icecast.omroep.nl/funx-hiphop-bb-mp3"
-            },
-            {
-                "name": "FunX Den Haag Hip Hop",
-                "url": "http://icecast.omroep.nl/funx-hiphop-bb-mp3"
-            },
-            {
-                "name": "FunX Den Haag Hip Hop",
-                "url": "http://icecast.omroep.nl/funx-hiphop-bb-mp3"
-            },
-            {
-                "name": "FunX Den Haag Hip Hop",
-                "url": "http://icecast.omroep.nl/funx-hiphop-bb-mp3"
-            },
-            {
-                "name": "FunX Den Haag Hip Hop",
-                "url": "http://icecast.omroep.nl/funx-hiphop-bb-mp3"
-            },
-            {
-                "name": "FunX Den Haag Hip Hop",
-                "url": "http://icecast.omroep.nl/funx-hiphop-bb-mp3"
-            }
+            } 
         ]
     },
     {
@@ -51,11 +15,6 @@
                 "name": "DFM Spokoinoy Nochi Golyshi",
                 "url": "http://icecast.radiodfm.cdnvideo.ru/st05.mp3"
             }
-        ]
-    },
-    {
-        "name": "ss",
-        "stations": [
         ]
     }
 ]
