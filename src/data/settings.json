@@ -14,16 +14,24 @@
 		"bgWindow":"#ffffff",
 		
 		"bgSelect":"#bad7df", 
-		"selectColor":"#ffffff", 
+		"selectColor":"#707070", 
 		
 		"bgInput":"#bad7df",
-		"inputColor":"#ffffff", 
+		"inputColor":"#707070", 
 		
 		"borderColor":"#00000000",
 		"borderHoverColor":"#00000000",
 		"borderPressedColor":"#00000000",
 		
 		"borderColorPopupGroup":"#c1c1c1",
+		
+		"bgImageBack":"#ccffffff",
+		
+		"sliderColor":"#b3b3b3",
+		"sliderColor2":"#bad7df",
+		"sliderColorButton":"#f6f6f6",
+		"sliderColorButtonPressed":"#bad7df",
+		"sliderColorButtonBorder":"#919190",
 		
 		
 		"bgColor":"#F2F4F3",
