@@ -11,7 +11,8 @@ ApplicationWindow {
     id:app
     property var    settings        : ({})
     property var    database        : ({})
-    property var    favourites       : ({})
+    property var    favourites      : ({})
+    property int    groupIndex      : 0
     property bool   statePlay       : false
     property alias  krudioqml       : krudioqml
     property alias  player          : player
@@ -74,6 +75,13 @@ ApplicationWindow {
                 id: pageView
                 interactive: false
                 anchors.fill: parent
+                onCurrentIndexChanged: function(){
+                     if(currentIndex === 1){
+                         menuBar.buttonEdit.nameIcon = "media-playback-back";
+                     }else{
+                         menuBar.buttonEdit.nameIcon = "document-edit";
+                     }
+                 }
                 Rectangle{
                     color:"#00000000"
                     PlayerView{
@@ -82,11 +90,18 @@ ApplicationWindow {
                 }
                 Rectangle{
                     color:"#00000000"
-                    PageEdit{}
+                    PageEdit{
+                        id:pageEdit
+                    }
                 }
 
             }
 
         }
+    }
+
+    onGroupIndexChanged: function(){
+        playerView.selectGroup.currentIndex = groupIndex;
+        pageEdit.selectGroup.currentIndex = groupIndex;
     }
 }

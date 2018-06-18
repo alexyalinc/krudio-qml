@@ -68,9 +68,22 @@ Rectangle {
                         elide: Text.ElideRight
                         color: settings.colors.selectColor
                     }
-                background: Rectangle {
-                    radius: 0
+                background: Rectangle{
                     color:"#00000000"
+                    Rectangle{
+                        width: 32
+                        height: 32
+                        y:-2
+                        color:"#00000000"
+                        x:selectGroup.width-height
+                        Image {
+                            anchors.horizontalCenter: parent.horizontalCenter
+                            anchors.verticalCenter: parent.verticalCenter
+                            source: "qrc:/src/icons/list-add.svg"
+                            sourceSize.width: 16
+                            sourceSize.height: 16
+                        }
+                    }
                 }
                 textRole: 'category'
             }

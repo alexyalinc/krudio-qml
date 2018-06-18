@@ -13,8 +13,8 @@
    height="16"
    id="svg3049"
    version="1.1"
-   inkscape:version="0.91 r13725"
-   sodipodi:docname="krudio-off-tray.svg"
+   inkscape:version="0.92.2 2405546, 2018-03-11"
+   sodipodi:docname="krudiotray-light-off.svg"
    inkscape:export-filename="/home/uri/.kde/share/icons/NITRUX-KDE/16x16/actions/view-right-new.png"
    inkscape:export-xdpi="30"
    inkscape:export-ydpi="30">
@@ -27,9 +27,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="24.48"
-     inkscape:cx="0.33944836"
-     inkscape:cy="8.5983214"
+     inkscape:zoom="22.627417"
+     inkscape:cx="8.5843738"
+     inkscape:cy="11.744637"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -37,36 +37,41 @@
      fit-margin-left="0"
      fit-margin-right="0"
      fit-margin-bottom="0"
-     inkscape:window-width="1600"
-     inkscape:window-height="845"
+     inkscape:window-width="1440"
+     inkscape:window-height="826"
      inkscape:window-x="0"
-     inkscape:window-y="32"
+     inkscape:window-y="0"
      inkscape:window-maximized="1"
      inkscape:showpageshadow="false"
      borderlayer="true"
      inkscape:snap-bbox="true"
      inkscape:object-nodes="true"
      showguides="false"
-     showborder="false">
+     showborder="true"
+     inkscape:pagecheckerboard="false">
     <inkscape:grid
        type="xygrid"
        id="grid4085" />
     <sodipodi:guide
        position="2.0000044,14.00003"
        orientation="12,0"
-       id="guide4075" />
+       id="guide4075"
+       inkscape:locked="false" />
     <sodipodi:guide
        position="2.0000044,2.0000296"
        orientation="0,12"
-       id="guide4077" />
+       id="guide4077"
+       inkscape:locked="false" />
     <sodipodi:guide
        position="14.000004,2.0000296"
        orientation="-12,0"
-       id="guide4079" />
+       id="guide4079"
+       inkscape:locked="false" />
     <sodipodi:guide
        position="14.000004,14.00003"
        orientation="0,-12"
-       id="guide4081" />
+       id="guide4081"
+       inkscape:locked="false" />
   </sodipodi:namedview>
   <metadata
      id="metadata3054">
@@ -85,15 +90,21 @@
      inkscape:groupmode="layer"
      id="layer1"
      transform="translate(-421.71429,-531.79074)">
-    <path
-       style="opacity:1;fill:#f2f2f2;fill-opacity:1;stroke:none"
-       d="M 12 1 C 11.446 1 11 1.446 11 2 L 11 5 L 2 5 C 1.446 5 1 5.446 1 6 L 1 14 C 1 14.554 1.446 15 2 15 L 14 15 C 14.554 15 15 14.554 15 14 L 15 6 C 15 5.446 14.554 5 14 5 L 13 5 L 13 2 C 13 1.446 12.554 1 12 1 z M 6 7 A 3 3 0 0 1 9 10 A 3 3 0 0 1 6 13 A 3 3 0 0 1 3 10 A 3 3 0 0 1 6 7 z "
-       transform="translate(421.71429,531.79074)"
-       id="path4163" />
-    <path
-       style="opacity:1;fill:#f2f2f2;fill-opacity:1;stroke:none"
-       d="m 427.71429,539.79074 a 2,2 0 0 0 -2,2 2,2 0 0 0 2,2 2,2 0 0 0 2,-2 2,2 0 0 0 -2,-2 z"
-       id="rect4148"
-       inkscape:connector-curvature="0" />
+    <g
+       id="g4533"
+       transform="translate(0.00550659,-2.0036895)">
+      <path
+         transform="translate(421.71429,531.79074)"
+         sodipodi:nodetypes="cssssssccsssss"
+         inkscape:connector-curvature="0"
+         id="path4163"
+         d="M 2,5 C 1.446,5 1,5.446 1,6 v 8 c 0,0.554 0.446,1 1,1 h 12 c 0.554,0 1,-0.446 1,-1 V 6 C 15,5.446 14.554,5 14,5 2,5 13.323327,5 2,5 Z M 6,7 C 7.6568542,7 9,8.3431458 9,10 9,11.656854 7.6568542,13 6,13 4.3431458,13 3,11.656854 3,10 3,8.3431458 4.3431458,7 6,7 Z"
+         style="opacity:1;fill:#f2f2f2;fill-opacity:1;stroke:none" />
+      <path
+         inkscape:connector-curvature="0"
+         id="rect4148"
+         d="m 427.71429,539.79074 a 2,2 0 0 0 -2,2 2,2 0 0 0 2,2 2,2 0 0 0 2,-2 2,2 0 0 0 -2,-2 z"
+         style="opacity:1;fill:#f2f2f2;fill-opacity:1;stroke:none" />
+    </g>
   </g>
 </svg>

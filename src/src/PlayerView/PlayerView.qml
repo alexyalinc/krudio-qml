@@ -14,6 +14,7 @@ PlayerViewForm {
     function loadUrlAlbum(track) {
         if(track!=="none"){
             playerView.albumImage.source="qrc:/src/icons/image-loading.png";
+            playerView.albumImageBack.source="";
             var http1 = Qt.atob("aHR0cDovL3dzLmF1ZGlvc2Nyb2JibGVyLmNvbS8yLjAvP21ldGhvZD10cmFjay5zZWFyY2gmdHJhY2s9");
             var http2 = Qt.atob("JmFwaV9rZXk9MGQ4ZjM2NjIzMDE0NjEyYjAyNjQ0ZjM1OGRlNmE1MDQmZm9ybWF0PWpzb24=");
             var xhr = new XMLHttpRequest();
@@ -25,6 +26,7 @@ PlayerViewForm {
                         var imageUrl=(jsonObject.results.trackmatches.track.length===0)? "": jsonObject.results.trackmatches.track[0].image[2]["#text"];
                         if(imageUrl!==""){
                             playerView.albumImage.source=imageUrl;
+                            playerView.albumImageBack.source=imageUrl;
                         }else{
                             playerView.albumImage.source="qrc:/src/icons/no-image-icon.png";
                         }
@@ -37,7 +39,9 @@ PlayerViewForm {
         }
     }
 
-
+    sliderVolume.onValueChanged: function(){
+        player.volume = sliderVolume.value;
+    }
 
     Component {
         id:delegateStation
@@ -143,6 +147,16 @@ PlayerViewForm {
 
     }
 
+    swipePlayerList.onCurrentIndexChanged:function(){
+        if(swipePlayerList.currentIndex === 0){
+            currentView = "listStation";
+            buttonFavourites.active = false;
+        }else{
+            currentView = "listFavourites";
+            buttonFavourites.active = true;
+        }
+    }
+
     selectGroupMouse.onClicked: selectGroup.popup.visible = !selectGroup.popup.visible;
     selectGroup.currentIndex: 0;
     selectGroup.onCurrentTextChanged: function(){
@@ -176,6 +190,7 @@ PlayerViewForm {
                             text:category
                             clicked: function(){
                                 selectGroup.currentIndex = index;
+                                groupIndex = index;
                                 selectGroup.popup.close();
                             }
                         }
@@ -186,6 +201,7 @@ PlayerViewForm {
 
 
     Component.onCompleted: function(){
+        player.volume = sliderVolume.value;
         favourites.forEach(function(fav){
             modelFavourites.append({name:fav.name});
         })

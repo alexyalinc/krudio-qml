@@ -123,6 +123,7 @@ PageEditForm {
                     text:category
                     clicked: function(){
                         selectGroup.currentIndex = index;
+                        groupIndex = index;
                         selectGroup.popup.close();
                     }
                 }
@@ -179,7 +180,7 @@ PageEditForm {
                 id:inputGroup
                 color:"#00000000"
                 width: popupGroup.width
-                height: 30
+                height: 36
                 y:contentSelectGroup.height
                 z: 999
                 border.width: 1

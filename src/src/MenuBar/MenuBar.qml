@@ -4,14 +4,21 @@ MenuBarForm {
     property string currentPage: "main"
     id:menuBar
     function playPause(){
+        playerView.swipePlayerList.currentIndex = 0;
+        pageView.currentIndex = 0;
         if(statePlay){
             player.pause();
             krudioqmltray.tray_setState(false);
             buttonPlay.nameIcon = "media-playback-start";
         }else{
+            if(modelStation.count > 0){
+                player.source = modelStation.get(0).url;
+                playerView.listStation.currentIndex = 0;
+            }
             player.play();
             krudioqmltray.tray_setState(true);
             buttonPlay.nameIcon = "media-playback-pause";
+
         }
         statePlay = !statePlay;
     }
@@ -35,17 +42,12 @@ MenuBarForm {
     }
     buttonSearch.clicked: function (){ krudioqml.search(escape(playerView.nameSongText.text)) }
     buttonEdit.clicked: function(){
-        if(currentPage === "edit"){
-            buttonEdit.nameIcon = "document-edit";
-            currentPage = "main";
-            pageView.setCurrentIndex(0);
+        if(pageView.currentIndex === 1){
+            pageView.currentIndex = 0;
         }else{
-            buttonEdit.nameIcon = "media-playback-back";
-            currentPage = "edit";
-            pageView.setCurrentIndex(1);
+            pageView.currentIndex = 1;
         }
 
     }
-
 
 }
