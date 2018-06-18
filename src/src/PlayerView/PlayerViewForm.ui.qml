@@ -76,20 +76,21 @@ Rectangle {
                 anchors.fill: parent
                 model:modelGroup
                 delegate: delegateGroup
-                background: Rectangle {
-                    x:6
-                    radius: 0
+                contentItem: Text {
+                              leftPadding: 0
+                              rightPadding: selectGroup.indicator.width + selectGroup.spacing
+                              font.pixelSize:13;
+                              font.family: "Tahoma"
+                              font.weight: Font.Normal
+                              text: selectGroup.displayText
+                              verticalAlignment: Text.AlignVCenter
+                              elide: Text.ElideRight
+                              color: settings.colors.selectColor
+                          }
+                background: Rectangle{
                     color:"#00000000"
-                    Text {
-                        font.pixelSize:13;
-                        font.family: "Tahoma"
-                        font.weight: Font.Normal
-                        anchors.fill: parent
-                        verticalAlignment: Text.AlignVCenter
-                        horizontalAlignment: Text.AlignLeft
-                        text: qsTr(selectGroup.currentText)
-                    }
                 }
+
                 textRole: 'category'
             }
         }

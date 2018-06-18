@@ -3,7 +3,7 @@ import QtQuick 2.9
 ButtonForm {
     id:button
     property string text                :""
-    property int    textSize            :13
+    property int    textSize            :settings.colors.textSize
     property string textColor           :settings.colors.textColor
     property string textColorHover      :settings.colors.textColorHover
     property string textColorPressed    :settings.colors.textColorPressed
@@ -38,12 +38,12 @@ ButtonForm {
     mouseAreaButton.onPressed   : { button.state="Pressed" }
     mouseAreaButton.onReleased  : {
         if (mouseAreaButton.containsMouse)
-            button.state="Hovering";
+            button.state="Pressed";
         else
             if(!active){ button.state="";}
     }
 
-    onActiveChanged:  if(!active){ button.state="";}else{button.state="Hovering";}
+    onActiveChanged:  if(!active){ button.state="";}else{button.state="Pressed";}
 
     //Text
     textButton.text: text

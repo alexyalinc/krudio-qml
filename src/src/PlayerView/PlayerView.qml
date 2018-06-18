@@ -160,27 +160,30 @@ PlayerViewForm {
             }
         })
     }
-    Component {
+
+
+
+    Component{
         id:delegateGroup
-        ItemDelegate{
-            id:delCurr
-            width: parent.width
-            height: 40
-            Rectangle{
-                id: delegateGroupText
-                width: parent.width
-                height: 40
-                color: "#00000000"
-                Button{
-                    text:category
-                    clicked: function(){
-                        selectGroup.currentIndex = index;
-                        selectGroup.popup.close();
+        ItemDelegate {
+                    width: parent.width
+                    height: 40
+                    contentItem: Rectangle{
+                        id: delegateGroupText
+                        color: "#00000000"
+                        anchors.fill: parent
+                        Button{
+                            text:category
+                            clicked: function(){
+                                selectGroup.currentIndex = index;
+                                selectGroup.popup.close();
+                            }
+                        }
                     }
+                    highlighted: parent.highlightedIndex === index
                 }
-            }
-        }
     }
+
 
     Component.onCompleted: function(){
         favourites.forEach(function(fav){

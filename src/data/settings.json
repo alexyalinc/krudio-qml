@@ -7,24 +7,30 @@
         "hrStationUrl2":"#919190",
         "hrLabelGroup":"#919190",
         
-		"textColor":"#000000",
-		"textColorHover":"#000000",
-		"textColorPressed":"#000000",
+		"textColor":"#707070",
+		"textColorHover":"#707070",
+		"textColorPressed":"#707070",
 		
-		"bgWindow":"#F2F4F3",
+		"bgWindow":"#ffffff",
 		
 		"bgSelect":"#bad7df", 
+		"selectColor":"#ffffff", 
 		
 		"bgInput":"#bad7df",
-		"inputColor":"#000000", 
+		"inputColor":"#ffffff", 
 		
 		"borderColor":"#00000000",
 		"borderHoverColor":"#00000000",
 		"borderPressedColor":"#00000000",
 		
+		"borderColorPopupGroup":"#c1c1c1",
+		
+		
 		"bgColor":"#F2F4F3",
 		"bgColorHover":"#bad7df",
-		"bgColorPressed":"#bad7df"
+		"bgColorPressed":"#a7c8d1",  
+		
+		"textSize":14
 		  
 	}
 }

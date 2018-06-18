@@ -149,11 +149,11 @@ PageEditForm {
         width: selectGroup.count*40+inputGroup.height+selectGroup.height > app.height ? app.width:selectGroup.width
         height: Math.min(contentSelectGroup.implicitHeight+inputGroup.height, app.height)
         onActiveFocusChanged: function(){
-               if(!popupGroup.activeFocus){
-                   selectGroup.popup.close()
-               }
+            if(!popupGroup.activeFocus){
+                selectGroup.popup.close()
+            }
         }
-            contentItem:
+        contentItem:
             Rectangle{
             anchors.fill: parent
             ListView {
@@ -178,22 +178,25 @@ PageEditForm {
             Rectangle{
                 id:inputGroup
                 color:"#00000000"
-                width: parent.width
+                width: popupGroup.width
                 height: 30
                 y:contentSelectGroup.height
                 z: 999
+                border.width: 1
+                border.color: settings.colors.borderColorPopupGroup
                 Rectangle{
-                    height: parent.height
-                    width: parent.width - buttonAddGroup.width
+                    anchors.fill: inputGroup
+                    anchors.margins: 1
+                    anchors.topMargin: 0
+                    anchors.rightMargin: 100
                     color: settings.colors.bgInput
-                    border.width: 1
-                    border.color: settings.colors.bgInput
                     TextField {
-                        id: nameGroup
                         anchors.fill: parent
+                        id: nameGroup
                         text: qsTr("Name group")
                         color: settings.colors.inputColor
                         onFocusChanged: nameGroup.text = ""
+                        font.pixelSize: settings.colors.textSize
                         background: Rectangle {
                             radius: 0
                             color:"#00000000"
@@ -201,12 +204,11 @@ PageEditForm {
                     }
                 }
                 Rectangle{
-                    height: parent.height
-                    width: 100
-                    x:nameGroup.width
+                    anchors.fill: inputGroup
+                    anchors.margins: 1
+                    anchors.topMargin: 0
+                    anchors.leftMargin: nameGroup.width
                     color:"#00000000"
-                    border.width: 1
-                    border.color: settings.colors.bgColorPressed
                     Button{
                         id:buttonAddGroup
                         anchors.fill: parent

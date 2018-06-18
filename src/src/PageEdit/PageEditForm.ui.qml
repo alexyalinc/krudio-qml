@@ -30,6 +30,7 @@ Rectangle {
                 horizontalAlignment: Text.AlignHCenter
                 text: qsTr("Select group:")
                 anchors.fill: parent
+                font.pixelSize: settings.colors.textSize
                 color:settings.colors.textColor
             }
         }
@@ -58,19 +59,18 @@ Rectangle {
                 model:modelGroup
                 delegate: delegateGroup
                 popup:popupGroup
+                contentItem: Text {
+                        leftPadding: 0
+                        rightPadding: selectGroup.indicator.width + selectGroup.spacing
+                        text: selectGroup.displayText
+                        font.pixelSize: settings.colors.textSize
+                        verticalAlignment: Text.AlignVCenter
+                        elide: Text.ElideRight
+                        color: settings.colors.selectColor
+                    }
                 background: Rectangle {
-                    x:6
                     radius: 0
                     color:"#00000000"
-                    Text {
-                        font.pixelSize:13;
-                        font.family: "Tahoma"
-                        font.weight: Font.Normal
-                        anchors.fill: parent
-                        verticalAlignment: Text.AlignVCenter
-                        horizontalAlignment: Text.AlignLeft
-                        text: qsTr(selectGroup.currentText)
-                    }
                 }
                 textRole: 'category'
             }
@@ -100,6 +100,7 @@ Rectangle {
                     anchors.fill: parent
                     text: qsTr("Url station")
                     color: settings.colors.inputColor
+                    font.pixelSize: settings.colors.textSize
                     background: Rectangle {
                         border.width: 0
                         border.color: "#00000000"
