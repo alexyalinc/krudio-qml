@@ -45,90 +45,96 @@ PlayerViewForm {
 
     Component {
         id:delegateStation
-        Rectangle {
-            id:itemStation
+        ItemDelegate{
             width: parent.width
             height: 40
-            border.color: settings.colors.borderColor
-            color:"#00000000"
-
-            Rectangle {
-                id:itemStationText
-                width: itemStation.width
+            contentItem: Rectangle {
+                anchors.fill: parent
+                id:itemStation
+                border.color: settings.colors.borderColor
                 color:"#00000000"
-                height: itemStation.height
-                Button {
-                    text: name
-                    textPosition: "left"
-                    nameIcon: (listStation.currentIndex === index) && statePlay ? "media-playback-pause":"media-playback-start"
-                    active:  listStation.currentIndex === index
-                    clicked: function(){
-                        player.stop();
-                        player.source = modelStation.get(index).url;
-                        if(statePlay){
+
+                Rectangle {
+                    id:itemStationText
+                    width: itemStation.width
+                    color:"#00000000"
+                    height: itemStation.height
+                    Button {
+                        text: name
+                        textPosition: "left"
+                        nameIcon: (listStation.currentIndex === index) && statePlay ? "media-playback-pause":"media-playback-start"
+                        active:  listStation.currentIndex === index
+                        clicked: function(){
+                            player.stop();
+                            player.source = modelStation.get(index).url;
+                            if(statePlay){
+                                menuBar.playPause();
+                            }
                             menuBar.playPause();
+                            listStation.currentIndex = index;
                         }
-                        menuBar.playPause();
-                        listStation.currentIndex = index;
                     }
                 }
-            }
-            Rectangle{
-                color:"#00000000"
-                id:itemStationButton
-                x:itemStationText.width
-                width:40
-                height: itemStation.height
+                Rectangle{
+                    color:"#00000000"
+                    id:itemStationButton
+                    x:itemStationText.width
+                    width:40
+                    height: itemStation.height
+                }
             }
         }
     }
 
     Component {
         id:delegateFavourites
-        Rectangle {
-            id:itemStation
+        ItemDelegate{
             width: parent.width
             height: 40
-            border.color: settings.colors.borderColor
-            color:"#00000000"
+            contentItem: Rectangle {
+                id:itemStation
+                anchors.fill: parent
+                border.color: settings.colors.borderColor
+                color:"#00000000"
 
-            Rectangle {
-                id:itemStationText
-                width: itemStation.width-itemStationButton.width-itemStationButtonDelete.width
-                color:"#00000000"
-                height: itemStation.height
-                Button {
-                    x:5
-                    text: name
-                    textPosition: "left"
+                Rectangle {
+                    id:itemStationText
+                    width: itemStation.width-itemStationButton.width-itemStationButtonDelete.width
+                    color:"#00000000"
+                    height: itemStation.height
+                    Button {
+                        x:5
+                        text: name
+                        textPosition: "left"
+                    }
                 }
-            }
-            Rectangle{
-                color:"#00000000"
-                id:itemStationButton
-                x:itemStationText.width
-                width:40
-                height: itemStation.height
-                Button{
-                    nameIcon: "search"
-                    clicked: function(){
-                        krudioqml.search(escape(name));
-                   }
+                Rectangle{
+                    color:"#00000000"
+                    id:itemStationButton
+                    x:itemStationText.width
+                    width:40
+                    height: itemStation.height
+                    Button{
+                        nameIcon: "search"
+                        clicked: function(){
+                            krudioqml.search(escape(name));
+                        }
+                    }
                 }
-            }
-            Rectangle{
-                color:"#00000000"
-                id:itemStationButtonDelete
-                x:itemStationText.width+itemStationButton.width
-                width:40
-                height: itemStation.height
-                Button{
-                    nameIcon: "edit-delete"
-                    clicked: function(){
-                        favourites.splice(index,1);
-                        modelFavourites.remove(index);
-                        krudioqml.saveJson("favourites",JSON.stringify(favourites));
-                   }
+                Rectangle{
+                    color:"#00000000"
+                    id:itemStationButtonDelete
+                    x:itemStationText.width+itemStationButton.width
+                    width:40
+                    height: itemStation.height
+                    Button{
+                        nameIcon: "edit-delete"
+                        clicked: function(){
+                            favourites.splice(index,1);
+                            modelFavourites.remove(index);
+                            krudioqml.saveJson("favourites",JSON.stringify(favourites));
+                        }
+                    }
                 }
             }
         }
@@ -180,23 +186,23 @@ PlayerViewForm {
     Component{
         id:delegateGroup
         ItemDelegate {
-                    width: parent.width
-                    height: 40
-                    contentItem: Rectangle{
-                        id: delegateGroupText
-                        color: "#00000000"
-                        anchors.fill: parent
-                        Button{
-                            text:category
-                            clicked: function(){
-                                selectGroup.currentIndex = index;
-                                groupIndex = index;
-                                selectGroup.popup.close();
-                            }
-                        }
+            width: parent.width
+            height: 40
+            contentItem: Rectangle{
+                id: delegateGroupText
+                color: "#00000000"
+                anchors.fill: parent
+                Button{
+                    text:category
+                    clicked: function(){
+                        selectGroup.currentIndex = index;
+                        groupIndex = index;
+                        selectGroup.popup.close();
                     }
-                    highlighted: parent.highlightedIndex === index
                 }
+            }
+            highlighted: parent.highlightedIndex === index
+        }
     }
 
 

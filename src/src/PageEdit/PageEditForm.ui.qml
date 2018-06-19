@@ -56,6 +56,7 @@ Rectangle {
                 }
                 id: selectGroup
                 anchors.fill: parent
+                indicator: Rectangle{color:"#00000000"}
                 model:modelGroup
                 delegate: delegateGroup
                 popup:popupGroup

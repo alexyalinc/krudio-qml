@@ -34,7 +34,7 @@ ButtonForm {
     mouseAreaButton.hoverEnabled: true
 
     mouseAreaButton.onEntered   : { button.state='Hovering'}
-    mouseAreaButton.onExited    : { if(!active){button.state=''}}
+    mouseAreaButton.onExited    : { if(!active){button.state=''}else{button.state="Pressed";}}
     mouseAreaButton.onPressed   : { button.state="Pressed" }
     mouseAreaButton.onReleased  : {
         if (mouseAreaButton.containsMouse)
