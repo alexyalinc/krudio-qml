@@ -22,8 +22,8 @@ MenuBarForm {
         }
         statePlay = !statePlay;
     }
-    buttonPlay.clicked: function (){playPause();}
-    buttonAdd.clicked: function (){
+    buttonPlay.onClicked: function (){playPause();}
+    buttonAdd.onClicked: function (){
         var nameSong = playerView.nameSongText.text;
         var clear = true;
         if(nameSong !== ""){
@@ -40,8 +40,8 @@ MenuBarForm {
             }
         }
     }
-    buttonSearch.clicked: function (){ krudioqml.search(escape(playerView.nameSongText.text)) }
-    buttonEdit.clicked: function(){
+    buttonSearch.onClicked: function (){ krudioqml.search(escape(playerView.nameSongText.text)) }
+    buttonEdit.onClicked: function(){
         if(pageView.currentIndex === 1){
             pageView.currentIndex = 0;
         }else{

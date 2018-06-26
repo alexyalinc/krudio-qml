@@ -64,7 +64,7 @@ PlayerViewForm {
                         textPosition: "left"
                         nameIcon: (listStation.currentIndex === index) && statePlay ? "media-playback-pause":"media-playback-start"
                         active:  listStation.currentIndex === index
-                        clicked: function(){
+                        onClicked: function(){
                             player.stop();
                             player.source = modelStation.get(index).url;
                             if(statePlay){
@@ -116,7 +116,7 @@ PlayerViewForm {
                     height: itemStation.height
                     Button{
                         nameIcon: "search"
-                        clicked: function(){
+                        onClicked: function(){
                             krudioqml.search(escape(name));
                         }
                     }
@@ -129,7 +129,7 @@ PlayerViewForm {
                     height: itemStation.height
                     Button{
                         nameIcon: "edit-delete"
-                        clicked: function(){
+                        onClicked: function(){
                             favourites.splice(index,1);
                             modelFavourites.remove(index);
                             krudioqml.saveJson("favourites",JSON.stringify(favourites));
@@ -140,7 +140,7 @@ PlayerViewForm {
         }
     }
 
-    buttonFavourites.clicked: function(){
+    buttonFavourites.onClicked: function(){
         if(currentView === "listStation"){
             swipePlayerList.currentIndex = 1;
             currentView = "listFavourites";
@@ -194,7 +194,7 @@ PlayerViewForm {
                 anchors.fill: parent
                 Button{
                     text:category
-                    clicked: function(){
+                    onClicked: function(){
                         selectGroup.currentIndex = index;
                         groupIndex = index;
                         selectGroup.popup.close();

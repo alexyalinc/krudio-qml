@@ -11,7 +11,6 @@ int main(int argc, char *argv[])
     qmlRegisterType<KrudioQmlTray>("krudioqmltray", 1, 0, "KrudioQmlTray");
     QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
     QApplication app(argc, argv);
-    KrudioQml *krudioqmlApp;
     QQmlApplicationEngine engine;
     QObject::connect(&engine, &QQmlApplicationEngine::quit, &app, &QGuiApplication::quit);
 

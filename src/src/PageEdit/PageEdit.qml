@@ -106,7 +106,7 @@ PageEditForm {
 
     stationUrl.onFocusChanged: stationUrl.text = ""
 
-    buttonAddStation.clicked: function(){ addStation(); }
+    buttonAddStation.onClicked: function(){ addStation(); }
     selectGroupMouse.onClicked: selectGroup.popup.visible = !selectGroup.popup.visible;
     Component {
         id:delegateGroup
@@ -121,7 +121,7 @@ PageEditForm {
                 color: "#00000000"
                 Button{
                     text:category
-                    clicked: function(){
+                    onClicked: function(){
                         selectGroup.currentIndex = index;
                         groupIndex = index;
                         selectGroup.popup.close();
@@ -135,7 +135,7 @@ PageEditForm {
                 color: "#00000000"
                 Button{
                     nameIcon: "edit-delete"
-                    clicked: function(){
+                    onClicked: function(){
                         deleteGroup(index);
                     }
                 }
@@ -214,7 +214,7 @@ PageEditForm {
                         id:buttonAddGroup
                         anchors.fill: parent
                         text:qsTr("Add Group")
-                        clicked: function(){
+                        onClicked: function(){
                             if(nameGroup.text !== "Name group" && nameGroup.text !== ""){
                                 var clear = true;
                                 database.forEach(function(category){
@@ -252,7 +252,7 @@ PageEditForm {
                 height: itemStation.height
                 Button{
                     nameIcon: "edit-delete"
-                    clicked: function(){
+                    onClicked: function(){
                         deleteStation(index)
                     }
                 }

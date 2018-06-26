@@ -15,28 +15,105 @@ ButtonForm {
     property string borderPressedColor  :settings.colors.borderPressedColor
     property string nameIcon            :""
     property int    sizeIcon            :16
-    property var    clicked             :function(){}
     property bool   active              :false
     property string textPosition        :"center"
+    property int    speedCircle         : 500
+    property real   typeAnimation       : Easing.Linear
+    property int    mx                  : 0;
+    property int    my                  : 0;
 
+    signal  clicked;
 
-
-    Behavior on scale {
-        NumberAnimation {
-            duration: 100
-            easing.type: Easing.InOutQuad
-        }
-    }
+    circle.color:settings.colors.bgColorCircle
 
     //Click
-    mouseAreaButton.onClicked: clicked()
+    mouseAreaButton.onClicked: function(){
+        button.clicked()
+    }
+    circle.states:[
+        State {
+            name: "Active"
+            PropertyChanges {
+                target: circle
+                width: mouseAreaButton.width > mouseAreaButton.height ? mouseAreaButton.width*3:mouseAreaButton.height*3
+                height:mouseAreaButton.width > mouseAreaButton.height ? mouseAreaButton.width*3:mouseAreaButton.height*3
+                x:mx - circle.width/2
+                y:my - circle.height/2
+                opacity:1
+            }
+
+        },
+        State {
+            name: "NextActive"
+            PropertyChanges {
+                target: circle
+                width: mouseAreaButton.width > mouseAreaButton.height ? mouseAreaButton.width*3:mouseAreaButton.height*3
+                height:mouseAreaButton.width > mouseAreaButton.height ? mouseAreaButton.width*3:mouseAreaButton.height*3
+                x:mx - circle.width/2
+                y:my - circle.height/2
+                opacity:0
+            }
+
+        },
+        State {
+            name: ""
+            PropertyChanges {
+                target: circle
+                width: 0
+                height:0
+                x:mx - circle.width/2
+                y:my - circle.height/2
+                opacity:1
+            }
+        }
+    ]
+
+
+    circle.transitions:   [
+        Transition {
+            from: ""; to: "Active"
+            NumberAnimation { properties: "x,y"; duration:speedCircle; easing.type:typeAnimation }
+            NumberAnimation { properties: "width,height";duration:speedCircle; easing.type:typeAnimation }
+            NumberAnimation { properties: "opacity";duration:speedCircle; easing.type:typeAnimation }
+        },
+        Transition {
+            from: "NextActive"; to: "Active"
+            NumberAnimation { properties: "x,y"; duration:speedCircle; easing.type:typeAnimation }
+            NumberAnimation { properties: "width,height";duration:speedCircle; easing.type:typeAnimation }
+            NumberAnimation { properties: "opacity";duration:speedCircle; easing.type:typeAnimation }
+        },
+        Transition {
+            from: "Active"; to: "NextActive"
+            NumberAnimation { properties: "x,y"; duration:speedCircle; easing.type:typeAnimation }
+            NumberAnimation { properties: "width,height";duration:speedCircle; easing.type:typeAnimation }
+            NumberAnimation { properties: "opacity";duration:speedCircle; easing.type:typeAnimation }
+            onRunningChanged: function(){
+                if(circle.state === "NextActive" && !running){
+                    circle.state = "";
+                }
+            }
+        }
+    ]
     //Hover
     mouseAreaButton.hoverEnabled: true
 
     mouseAreaButton.onEntered   : { button.state='Hovering'}
     mouseAreaButton.onExited    : { if(!active){button.state=''}else{button.state="Pressed";}}
-    mouseAreaButton.onPressed   : { button.state="Pressed" }
+    mouseAreaButton.onPressed   : {
+        circle.state=""
+        mx = mouseAreaButton.mouseX ;
+        my = mouseAreaButton.mouseY ;
+        circle.x = mx ;
+        circle.y = my;
+        button.state="Pressed"
+        circle.width = 0;
+        circle.height = 0;
+        circle.state="Active"
+
+    }
+
     mouseAreaButton.onReleased  : {
+        circle.state="NextActive"
         if (mouseAreaButton.containsMouse)
             button.state="Pressed";
         else
@@ -158,6 +235,10 @@ ButtonForm {
         },
         Transition {
             from: "*"; to: "Pressed"
+            ColorAnimation { duration: 200 }
+        },
+        Transition {
+            from: "Pressed"; to: ""
             ColorAnimation { duration: 200 }
         }
     ]
