@@ -16,6 +16,3 @@ Radio tray for linux on QML
 # UNINSTALL
 - $ sudo make uninstall
 
-# DONATE
-- https://loast.github.io/
-
